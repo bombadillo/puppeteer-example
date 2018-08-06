@@ -1,0 +1,28 @@
+{
+  "name": "dvla-parser",
+  "version": "0.1.0",
+  "dependencies": {
+    "puppeteer": "1.6.2",
+    "rword": "2.2.0"
+  },
+  "devDependencies": {
+    "lint-staged": "^7.2.0",
+    "husky": "^1.0.0-rc.9"
+  },
+  "scripts": {
+    "start": "node --experimental-modules src/index.mjs",
+    "precommit": "lint-staged",
+    "prettier": "prettier ./**/*.{js,vue} --write"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,scss}": [
+      "npm run prettier",
+      "git add"
+    ]
+  }
+}
